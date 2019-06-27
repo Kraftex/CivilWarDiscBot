@@ -57,35 +57,37 @@ public class Mapa
         if (find)
             return result;
         else
-            return new Zona( "", new Bando(-1) );
+            return Zona.NULL;
     }
-    public Zona getZone ( int i, int j )
+    public Zona getZone ( int x, int y )
     {
-        if ( 0 <= i && i < 6 && 0 <= j && j < 5 )
-            return mapa.get(i).get(j);
+        if ( 0 <= y && y < 6 && 0 <= x && x < 5 )
+            return mapa.get(y).get(x);
         else
-            return new Zona( "", new Bando(-1) );
+            return Zona.NULL;
     }
     public String toString ( )
     {
         int i = 0, j = 0;
-        Zona result = new Zona( "", new Bando(-1) );
-        while( i < mapa.size( ) )
+        String result = "";
+        //Zona result = new Zona( "", new Bando(-1) );
+        while( j < mapa.size( ) )
         {
-            while( j < mapa.get(i).size( ) )
+            while( i < mapa.get(i).size( ) )
             {
-                result = getZone( i , j );
-                System.out.println(result);
-                j++;
+                result += getZone( i , j ) + " - ";
+                //System.out.println(result);
+                i++;
             }
-            j = 0;
-            i++;
+            result += "\n";
+            i = 0;
+            j++;
         }
-        return "";
+        return result;
     }
-    public void putBattleLevels ( int levels, int i, int j  )
+    public void putBattleLevels ( int levels, int x, int y  )
     {
-        putBattleLevels ( levels, getZone(i, j) );
+        putBattleLevels ( levels, getZone( x, y ) );
     }
     public void putBattleLevels ( int levels, Zona where )
     {

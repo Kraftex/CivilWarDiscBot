@@ -9,6 +9,7 @@
 
 public class Zona
 {
+    public static Zona NULL = new Zona( "", new Bando(-1) );
     private Bando team;
     private String position;
     private int battleLevels;

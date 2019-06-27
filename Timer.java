@@ -10,7 +10,7 @@ public class Timer
 
     public void restart ( )
     {
-        start = System.currentTimeMilis( );
+        start = System.currentTimeMillis( );
     }
 
     public boolean isElaspeTimeHours ( int h )
@@ -39,9 +39,10 @@ public class Timer
     {
         return System.currentTimeMillis( );
     }
+    @SuppressWarnings("deprecation")
     public String toString ( )
     {
-        Date that = new Date(beginingTasks);
+        Date that = new Date(start);
         return that.getHours( ) + ":" + that.getMinutes( ) + ":" + that.getSeconds( );
     }
 }
