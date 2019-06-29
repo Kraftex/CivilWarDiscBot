@@ -39,6 +39,10 @@ public class Zona
     {
         return position;
     }
+    public void setBando ( Bando b )
+    {
+        team = b;
+    }
     public Bando getBando ( )
     {
         return team;
