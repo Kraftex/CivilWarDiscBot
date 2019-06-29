@@ -12,6 +12,8 @@ public class Bando // Posible clase sin sentido...
 {
     public static final int ALEJANDRISTAS = 1;
     public static final int PLUTOCRATAS = 0;
+    public static final Bando ALEJ = new Bando(ALEJANDRISTAS);
+    public static final Bando PLUT = new Bando(PLUTOCRATAS);
 
     private int team;
 
@@ -19,9 +21,16 @@ public class Bando // Posible clase sin sentido...
     {
         this.team = team;
     }
-    public int getTeam ( )
+    /*public int getTeam ( )
     {
         return team;
+    }*/
+    public boolean equals ( Object o )
+    {
+        if ( !(o instanceof Bando) )
+            return false;
+        Bando b = (Bando)o;
+        return b.team == team;
     }
     public String toString ( )
     {
