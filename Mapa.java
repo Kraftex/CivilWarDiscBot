@@ -60,6 +60,10 @@ public class Mapa
             System.out.println("Not found: "+nameFile);
         }
     }
+    public void setBando ( int i, int j, Bando team )
+    {
+        getZone(i, j).setBando(team);
+    }
     public Zona getZone ( Zona zone )
     {
         boolean find = false;
@@ -152,7 +156,7 @@ public class Mapa
             while( i < 5 )
             {
                 //setZoneColor();
-                if ( j < 3 )
+                if ( getZone(i, j).getBando( ).equals(Bando.ALEJ) )
                     setZoneColor(draw, COLOR_ALEJ, i, j, xLZone, yLZone);
                 else
                     setZoneColor(draw, COLOR_PLUT, i, j, xLZone, yLZone);
@@ -181,6 +185,7 @@ public class Mapa
         drawing.setStroke( new BasicStroke( 1.2f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND ) );
         drawing.drawImage(map.paintMap, 0, 0, 1000, (int)Math.round(1000*ratio), null);
         //drawing.fillRect(0, 0, widthScale/3, heightScale/2);
+        map.setMapColor(drawing, xLZone, yLZone);
         for( int i = 0; i < 6-1; i++ )// y
         {
             //newMap.getGraphics( ).drawLine( 0, (int)(yLZone + yLZone*i), width, (int)(yLZone + yLZone*i) );
@@ -194,7 +199,8 @@ public class Mapa
         map.setZoneColor(drawing, COLOR_PLUT, 0, 5, xLZone, yLZone);
         map.setZoneColor(drawing, COLOR_PLUT, 4, 5, xLZone, yLZone);
         map.setZoneColor(drawing, COLOR_PLUT, 3, 3, xLZone, yLZone);*/
-        map.setMapColor(drawing, xLZone, yLZone);
+        //map.setBando(4, 5, Bando.ALEJ);
+        //map.setMapColor(drawing, xLZone, yLZone);
         JLabel image = new JLabel( new ImageIcon(newMap) );
         frame.setSize( 1000, (int)Math.round(1000*ratio)+30 );
         frame.getContentPane( ).add(image);
