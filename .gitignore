@@ -1,0 +1,8 @@
+# Compiled class file
+*.class
+
+# Duplicate files from Vim
+*.java~
+
+# Bash scripts
+*.sh
