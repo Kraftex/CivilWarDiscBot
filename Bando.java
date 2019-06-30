@@ -17,6 +17,10 @@ public class Bando // Posible clase sin sentido...
 
     private int team;
 
+    /**
+     * Constructor.
+     * Su mejor uso seria: new Bando (Bando.ALEJANDRISTAS)...
+     * */
     public Bando ( int team )
     {
         this.team = team;
