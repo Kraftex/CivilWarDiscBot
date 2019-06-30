@@ -28,6 +28,9 @@ public class Mapa
     private BufferedImage paintMap; // Map with colors
     //private Graphics2D drawing;
 
+    /**
+     * Constructor sin argumentos, porque no carga la imagen del mapa.
+     * */
     public Mapa ( )//String nameFile )
     {
         //photoMap = ImageIO.read( new File(nameFile) );
@@ -49,6 +52,9 @@ public class Mapa
             j = 0;
         }
     }
+    /**
+     * Constructor que recibe un String el cuel deberia de ser el nombre y ruta hacia la imagen del mapa.
+     * */
     public Mapa ( String nameFile )
     {
         this( );
@@ -64,6 +70,9 @@ public class Mapa
     {
         getZone(i, j).setBando(team);
     }
+    /**
+     * Devuelve la zona que es igual a <zone>, sino devulve Zona.NULL.
+     * */
     public Zona getZone ( Zona zone )
     {
         boolean find = false;
@@ -91,8 +100,42 @@ public class Mapa
             return Zona.NULL;
     }
     /**
+     * Devuelve la zona que tiene la misma <pos>, sino devulve Zona.NULL.
+     * Ejemplos de <pos>:
+     *      "a3"
+     *      "c5"
+     *      "b6"
+     * */
+    public Zona getZone ( String pos )
+    {
+        boolean find = false;
+        int i = 0, j = 0;
+        Zona result = Zona.NULL;
+        while( i < mapa.size( ) && !find )
+        {
+            while( j < mapa.get(i).size( ) && !find )
+            {
+                if ( getZone( i , j ).getPosition( ).equals( pos ) )
+                {
+                    result = getZone( i, j );
+                    find = true;
+                }
+                j++;
+            }
+            j = 0;
+            i++;
+        }
+        if (find)
+            return result;
+        else
+            return Zona.NULL;
+    }
+    /**
      * x in [0, 4]
      * y in [0, 5]
+     * */
+    /**
+     * Devuelve la zona que se encuetre en <x> e <y> segun el mapa, sino devulve Zona.NULL.
      * */
     public Zona getZone ( int x, int y )
     {
@@ -101,6 +144,9 @@ public class Mapa
         else
             return Zona.NULL;
     }
+    /**
+     * Muestra las zonas y sus distribuciones incluyendo sus BattleLevels.
+     * */
     public String toString ( )
     {
         int i = 0, j = 0;
@@ -129,7 +175,12 @@ public class Mapa
         getZone(where).setBattleLevels(levels);
     }
     
-    
+    /**
+     * Cargar la imagen mediante un BufferedImage.
+     * Uso: 
+     *      Mapa m = new Mapa();
+     *      m.setPhotoMap( new BufferedImage( ImageIO.read( new File(nameFile) ) ) );
+     * */
     public void setPhotoMap ( BufferedImage image )
     {
         paintMap = image;
@@ -142,6 +193,11 @@ public class Mapa
     {
         
     }*/
+
+
+    /**
+     * Posibles clases que se eliminaran, solo sirven para hacer cosas en el 'main'.
+     * */
     public void setZoneColor ( Graphics2D draw, Color color, int x, int y, double xLZone, double yLZone )
     {
         draw.setColor(color);
@@ -166,6 +222,9 @@ public class Mapa
             j++;
         }
     }
+    /**
+     * Pruebas...
+     * */
     @SuppressWarnings("deprecation")
     public static void main ( String[] args )
     {
