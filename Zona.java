@@ -7,6 +7,10 @@
  * @version 1.0 22/06/2019
  * */
 
+/**
+ * No se que comentar.
+ * */
+
 public class Zona
 {
     public static Zona NULL = new Zona( "", new Bando(-1) );
