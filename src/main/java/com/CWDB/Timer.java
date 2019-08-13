@@ -1,3 +1,4 @@
+package com.CWDB;
 import java.util.Date;
 public class Timer
 {
@@ -68,7 +69,7 @@ public class Timer
             minutes = minutes % 60;
         }
         return isElaspeTimeHours(hours)
-            && isElaspeTimeMinutes(minites)
+            && isElaspeTimeMinutes(minutes)
             && isElaspeTimeSeconds(seconds);
     }
     /**

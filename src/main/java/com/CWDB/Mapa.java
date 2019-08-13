@@ -1,3 +1,4 @@
+package com.CWDB;
 /**
  * DescriptionOfTheProgram.
  * Resolucion del problema 'Mapa'.
